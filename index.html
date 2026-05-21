@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>영화 감상문 쓰기</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Malgun Gothic"', '"Apple SD Gothic Neo"', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 18px 45px rgba(31, 41, 55, 0.14)'
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="min-h-screen bg-sky-50 font-sans text-slate-800">
+  <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(251,146,60,0.28),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(45,212,191,0.3),transparent_26%),radial-gradient(circle_at_75%_85%,rgba(168,85,247,0.22),transparent_30%),linear-gradient(90deg,rgba(14,165,233,0.11)_1px,transparent_1px),linear-gradient(rgba(14,165,233,0.11)_1px,transparent_1px)] bg-[length:auto,auto,auto,30px_30px,30px_30px]"></div>
+
+  <div class="grid min-h-screen lg:grid-cols-[280px_minmax(0,1fr)]">
+    <aside class="sticky top-0 h-auto overflow-auto bg-slate-950 px-5 py-6 text-white lg:h-screen">
+      <div class="mb-7 flex items-center gap-3">
+        <div class="grid h-12 w-12 shrink-0 place-items-center rounded-full border-4 border-white/80 bg-gradient-to-br from-amber-300 via-orange-400 to-rose-400 shadow-lg">
+          <div class="grid h-8 w-8 grid-cols-2 gap-1 rounded-full bg-slate-950 p-1">
+            <span class="rounded-full bg-white"></span>
+            <span class="rounded-full bg-white"></span>
+            <span class="rounded-full bg-white"></span>
+            <span class="rounded-full bg-white"></span>
+          </div>
+        </div>
+        <div>
+          <h1 class="text-2xl font-black leading-tight tracking-normal">영화 감상문<br>쓰기</h1>
+          <p class="mt-1 text-sm leading-6 text-sky-100">초등학교 5학년을 위한 감상 정리 도구</p>
+        </div>
+      </div>
+
+      <nav class="mb-6 grid gap-2" aria-label="작성 단계">
+        <a class="rounded-lg bg-white/10 px-3 py-3 text-sm font-bold text-white transition hover:bg-cyan-400/25 focus:outline-none focus:ring-2 focus:ring-cyan-300" href="#movie">1. 영화 정보</a>
+        <a class="rounded-lg bg-white/10 px-3 py-3 text-sm font-bold text-white transition hover:bg-fuchsia-400/25 focus:outline-none focus:ring-2 focus:ring-fuchsia-300" href="#search">2. 줄거리 찾기</a>
+        <a class="rounded-lg bg-white/10 px-3 py-3 text-sm font-bold text-white transition hover:bg-amber-400/25 focus:outline-none focus:ring-2 focus:ring-amber-300" href="#feeling">3. 느낌 고르기</a>
+        <a class="rounded-lg bg-white/10 px-3 py-3 text-sm font-bold text-white transition hover:bg-emerald-400/25 focus:outline-none focus:ring-2 focus:ring-emerald-300" href="#thinking">4. 생각 정리</a>
+        <a class="rounded-lg bg-white/10 px-3 py-3 text-sm font-bold text-white transition hover:bg-rose-400/25 focus:outline-none focus:ring-2 focus:ring-rose-300" href="#finish">5. 마무리</a>
+      </nav>
+
+      <div class="border-t border-white/15 pt-5">
+        <h2 class="mb-3 text-base font-black">저장한 감상문</h2>
+        <div class="grid gap-2" id="savedList"></div>
+      </div>
+    </aside>
+
+    <main class="p-4 sm:p-7">
+      <div class="relative mb-5 min-h-60 overflow-hidden rounded-lg bg-slate-950 px-7 py-8 text-white shadow-soft sm:px-9">
+        <div class="absolute inset-0 bg-[linear-gradient(110deg,rgba(15,23,42,0.96),rgba(15,23,42,0.42)),repeating-linear-gradient(90deg,#111827_0_28px,#f8fafc_28px_38px,#111827_38px_66px)]"></div>
+        <div class="absolute -right-12 -bottom-16 h-72 w-72 rounded-full bg-[conic-gradient(from_18deg,#facc15_0_14deg,transparent_14deg_45deg,#22d3ee_45deg_60deg,transparent_60deg_91deg,#fb7185_91deg_106deg,transparent_106deg_137deg,#34d399_137deg_152deg,transparent_152deg_360deg)] opacity-90"></div>
+        <div class="relative max-w-3xl">
+          <h2 class="text-3xl font-black leading-tight tracking-normal sm:text-5xl">영화를 본 뒤, 내 생각이 보이는 글로 정리해요.</h2>
+          <p class="mt-4 max-w-2xl text-base leading-7 text-sky-50">영화 정보를 찾아 줄거리를 가볍게 확인하고, 인상 깊은 장면과 내 생각을 차례로 적으면 감상문 초안이 자동으로 만들어집니다.</p>
+        </div>
+      </div>
+
+      <div class="grid items-start gap-5 xl:grid-cols-[minmax(0,1fr)_360px]">
+        <div class="space-y-4">
+          <section id="movie" class="rounded-lg border border-cyan-100 bg-white/90 p-5 shadow-lg shadow-cyan-900/5">
+            <div class="mb-4 flex items-center gap-3">
+              <span class="grid h-9 w-9 place-items-center rounded-lg bg-cyan-100 text-xl">🎞</span>
+              <h3 class="text-xl font-black tracking-normal">영화 정보</h3>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <label class="grid gap-2 text-sm font-black text-slate-600">영화 제목
+                <input class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="title" placeholder="예: 코코">
+              </label>
+              <label class="grid gap-2 text-sm font-black text-slate-600">감상한 날짜
+                <input class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="date" type="date">
+              </label>
+              <label class="grid gap-2 text-sm font-black text-slate-600">내 이름
+                <input class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="student" placeholder="예: 김하늘">
+              </label>
+              <label class="grid gap-2 text-sm font-black text-slate-600">함께 본 사람
+                <input class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="with" placeholder="예: 우리 반 친구들">
+              </label>
+            </div>
+          </section>
+
+          <section id="search" class="rounded-lg border border-fuchsia-100 bg-white/90 p-5 shadow-lg shadow-fuchsia-900/5">
+            <div class="mb-4 flex items-center gap-3">
+              <span class="grid h-9 w-9 place-items-center rounded-lg bg-fuchsia-100 text-xl">🔎</span>
+              <h3 class="text-xl font-black tracking-normal">줄거리와 기본 정보 찾기</h3>
+            </div>
+            <p class="mb-4 text-sm leading-6 text-slate-500">영화 제목을 검색하면 웹에서 공개된 정보를 찾아 보여줘요. 참고한 뒤에는 내 생각을 꼭 덧붙여 보세요.</p>
+            <div class="grid items-end gap-3 sm:grid-cols-[minmax(0,1fr)_auto]">
+              <label class="grid gap-2 text-sm font-black text-slate-600">검색어
+                <input class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 outline-none ring-fuchsia-200 transition focus:border-fuchsia-500 focus:ring-4" id="searchTitle" placeholder="영화 제목을 입력하세요">
+              </label>
+              <button class="min-h-11 rounded-lg bg-gradient-to-r from-fuchsia-600 to-violet-600 px-5 font-black text-white shadow-md shadow-fuchsia-900/20 transition hover:scale-[1.01] disabled:cursor-wait disabled:from-fuchsia-300 disabled:to-violet-300" type="button" id="searchBtn">검색</button>
+            </div>
+            <div class="mt-4 hidden overflow-hidden rounded-lg border border-fuchsia-100 bg-fuchsia-50/80" id="movieInfo" aria-live="polite"></div>
+          </section>
+
+          <section id="feeling" class="rounded-lg border border-amber-100 bg-white/90 p-5 shadow-lg shadow-amber-900/5">
+            <div class="mb-4 flex items-center gap-3">
+              <span class="grid h-9 w-9 place-items-center rounded-lg bg-amber-100 text-xl">✨</span>
+              <h3 class="text-xl font-black tracking-normal">느낌 고르기</h3>
+            </div>
+            <p class="mb-4 text-sm leading-6 text-slate-500">영화를 보고 가장 크게 든 마음을 2개 이상 골라도 좋아요.</p>
+            <div class="flex flex-wrap gap-2" id="chips">
+              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">감동적이었다</button>
+              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">재미있었다</button>
+              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">슬펐다</button>
+              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">긴장되었다</button>
+              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">궁금했다</button>
+              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">놀라웠다</button>
+              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">생각이 많아졌다</button>
+              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">따뜻했다</button>
+            </div>
+            <p class="mb-3 mt-5 text-sm leading-6 text-slate-500">별점도 골라보세요.</p>
+            <div class="flex flex-wrap gap-2" id="rating" aria-label="별점 선택">
+              <button class="star grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition hover:border-amber-300 hover:bg-amber-50" type="button" aria-label="1점">★</button>
+              <button class="star grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition hover:border-amber-300 hover:bg-amber-50" type="button" aria-label="2점">★</button>
+              <button class="star grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition hover:border-amber-300 hover:bg-amber-50" type="button" aria-label="3점">★</button>
+              <button class="star grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition hover:border-amber-300 hover:bg-amber-50" type="button" aria-label="4점">★</button>
+              <button class="star grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition hover:border-amber-300 hover:bg-amber-50" type="button" aria-label="5점">★</button>
+            </div>
+          </section>
+
+          <section id="thinking" class="rounded-lg border border-emerald-100 bg-white/90 p-5 shadow-lg shadow-emerald-900/5">
+            <div class="mb-4 flex items-center gap-3">
+              <span class="grid h-9 w-9 place-items-center rounded-lg bg-emerald-100 text-xl">💭</span>
+              <h3 class="text-xl font-black tracking-normal">생각 정리</h3>
+            </div>
+            <div class="grid gap-4">
+              <label class="grid gap-2 text-sm font-black text-slate-600">가장 기억에 남는 장면은 무엇인가요?
+                <textarea class="min-h-28 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="scene" placeholder="어떤 장면이었는지, 왜 기억에 남았는지 적어보세요."></textarea>
+              </label>
+              <label class="grid gap-2 text-sm font-black text-slate-600">가장 마음에 남은 등장인물은 누구인가요?
+                <textarea class="min-h-28 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="character" placeholder="그 인물이 한 말이나 행동도 함께 적어보세요."></textarea>
+              </label>
+              <label class="grid gap-2 text-sm font-black text-slate-600">영화가 알려 준 생각이나 교훈은 무엇인가요?
+                <textarea class="min-h-28 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="lesson" placeholder="내 생활과 연결해서 생각해도 좋아요."></textarea>
+              </label>
+              <label class="grid gap-2 text-sm font-black text-slate-600">친구에게 이 영화를 추천한다면 뭐라고 말하고 싶나요?
+                <textarea class="min-h-28 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="recommend" placeholder="추천하는 이유 또는 추천하지 않는 이유를 써보세요."></textarea>
+              </label>
+            </div>
+          </section>
+
+          <section id="finish" class="rounded-lg border border-rose-100 bg-white/90 p-5 shadow-lg shadow-rose-900/5">
+            <div class="mb-4 flex items-center gap-3">
+              <span class="grid h-9 w-9 place-items-center rounded-lg bg-rose-100 text-xl">📝</span>
+              <h3 class="text-xl font-black tracking-normal">마무리 문장</h3>
+            </div>
+            <label class="grid gap-2 text-sm font-black text-slate-600">마지막으로 꼭 하고 싶은 말
+              <textarea class="min-h-28 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 leading-7 text-slate-900 outline-none ring-rose-200 transition focus:border-rose-500 focus:ring-4" id="closing" placeholder="영화를 보고 달라진 생각이나 앞으로 해보고 싶은 일을 적어보세요."></textarea>
+            </label>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <button class="min-h-11 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-5 font-black text-white shadow-md shadow-blue-900/20 transition hover:scale-[1.01]" type="button" id="saveBtn">저장</button>
+              <button class="min-h-11 rounded-lg border border-slate-200 bg-white px-5 font-black text-slate-800 transition hover:bg-slate-50" type="button" id="printBtn">인쇄</button>
+              <button class="min-h-11 rounded-lg border border-slate-200 bg-white px-5 font-black text-slate-800 transition hover:bg-slate-50" type="button" id="copyBtn">본문 복사</button>
+              <button class="min-h-11 rounded-lg border border-rose-200 bg-rose-50 px-5 font-black text-rose-700 transition hover:bg-rose-100" type="button" id="clearBtn">새로 쓰기</button>
+            </div>
+          </section>
+        </div>
+
+        <div class="sticky top-5 rounded-lg border border-violet-100 bg-white/90 p-5 shadow-lg shadow-violet-900/5" aria-live="polite">
+          <div class="mb-4 flex items-center gap-3">
+            <span class="grid h-9 w-9 place-items-center rounded-lg bg-violet-100 text-xl">📄</span>
+            <h3 class="text-xl font-black tracking-normal">감상문 미리보기</h3>
+          </div>
+          <div class="min-h-[420px] whitespace-pre-wrap rounded-lg border border-amber-100 bg-[linear-gradient(#fffdf8_43px,#dbeafe_44px,#fffdf8_45px)] bg-[length:100%_46px] p-5 leading-[2]" id="paper"></div>
+          <div class="mt-3 text-sm text-slate-500" id="count"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="fixed bottom-5 left-1/2 z-50 translate-x-[-50%] translate-y-20 rounded-lg bg-slate-950 px-4 py-3 text-white opacity-0 shadow-soft transition" id="toast" role="status"></div>
+
+  <script>
+    const fields = ["title", "date", "student", "with", "scene", "character", "lesson", "recommend", "closing"];
+    const chipActiveClass = ["border-amber-400", "bg-amber-100", "text-amber-900", "shadow-sm"];
+    const starActiveClass = ["border-amber-400", "bg-amber-100", "text-amber-600"];
+    const state = {
+      rating: 0,
+      feelings: [],
+      movieReference: null
+    };
+
+    const $ = (id) => document.getElementById(id);
+
+    function getValue(id) {
+      return $(id).value.trim();
+    }
+
+    function sentence(value, fallback) {
+      return value || fallback;
+    }
+
+    function setClasses(element, classes, active) {
+      element.classList[active ? "add" : "remove"](...classes);
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function buildEssay() {
+      const title = sentence(getValue("title"), "아직 제목을 적지 않은 영화");
+      const date = getValue("date");
+      const student = getValue("student");
+      const watchedWith = getValue("with");
+      const feelings = state.feelings.length ? state.feelings.join(", ") : "여러 가지 생각이 들었다";
+      const stars = state.rating ? `별점은 ${"★".repeat(state.rating)}${"☆".repeat(5 - state.rating)}이다.` : "";
+      const header = `${title} 감상문${student ? `\n${student}` : ""}${date ? `\n${date}` : ""}`;
+      const reference = state.movieReference
+        ? "찾아본 기본 정보를 참고해 줄거리와 등장인물을 떠올려 보았다. 하지만 감상문에는 내가 직접 느낀 점과 생각을 중심으로 쓰려고 한다."
+        : "";
+
+      const parts = [
+        header,
+        `나는 ${watchedWith ? watchedWith + "과 함께 " : ""}<${title}>을/를 보았다. 영화를 보고 나니 ${feelings}. ${stars}`.trim(),
+        reference,
+        `가장 기억에 남는 장면은 ${sentence(getValue("scene"), "아직 적지 않았다")}. 이 장면이 기억에 남은 까닭은 영화를 보며 내 마음이 크게 움직였기 때문이다.`,
+        `가장 마음에 남은 등장인물은 ${sentence(getValue("character"), "아직 적지 않았다")}. 이 인물을 보며 나라면 어떻게 행동했을지 생각해 보게 되었다.`,
+        `이 영화가 알려 준 생각이나 교훈은 ${sentence(getValue("lesson"), "아직 적지 않았다")}. 그래서 영화는 단순히 재미만 주는 것이 아니라 내 생각을 자라게 해 준다고 느꼈다.`,
+        `친구에게 이 영화를 소개한다면 ${sentence(getValue("recommend"), "아직 적지 않았다")}.`,
+        `마지막으로 ${sentence(getValue("closing"), "이 영화를 오래 기억하고 싶다")}.`
+      ];
+
+      return parts.filter(Boolean).join("\n\n");
+    }
+
+    function render() {
+      const essay = buildEssay();
+      $("paper").textContent = essay;
+      $("count").textContent = `공백 제외 ${essay.replace(/\s/g, "").length}자`;
+      saveDraft();
+    }
+
+    function showToast(message) {
+      const toast = $("toast");
+      toast.textContent = message;
+      toast.classList.remove("translate-y-20", "opacity-0");
+      toast.classList.add("translate-y-0", "opacity-100");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => {
+        toast.classList.add("translate-y-20", "opacity-0");
+        toast.classList.remove("translate-y-0", "opacity-100");
+      }, 1800);
+    }
+
+    function setMovieInfo(html) {
+      const box = $("movieInfo");
+      box.innerHTML = html;
+      box.classList.remove("hidden");
+    }
+
+    function movieCardHtml(reference, thumbnail, tag) {
+      const poster = thumbnail
+        ? `<img class="h-full w-full object-cover" src="${escapeHtml(thumbnail)}" alt="">`
+        : escapeHtml(reference.title.slice(0, 12));
+      return `
+        <div class="grid gap-4 p-4 sm:grid-cols-[104px_minmax(0,1fr)]">
+          <div class="grid aspect-[2/3] w-28 place-items-center overflow-hidden rounded-lg bg-gradient-to-br from-slate-900 via-violet-800 to-fuchsia-600 p-2 text-center text-sm font-black text-white sm:w-[104px]">${poster}</div>
+          <div>
+            <h4 class="text-lg font-black">${escapeHtml(reference.title)}</h4>
+            <div class="my-2 flex flex-wrap gap-2">
+              <span class="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs font-bold text-slate-500">${escapeHtml(reference.description)}</span>
+              <span class="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs font-bold text-slate-500">${escapeHtml(tag)}</span>
+            </div>
+            <p class="leading-7 text-slate-700">${escapeHtml(reference.extract)}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    async function searchMovie() {
+      const query = getValue("searchTitle") || getValue("title");
+      if (!query) {
+        showToast("먼저 영화 제목을 입력해 주세요.");
+        $("searchTitle").focus();
+        return;
+      }
+
+      $("searchBtn").disabled = true;
+      $("searchBtn").textContent = "검색 중";
+      setMovieInfo(`
+        <div class="grid gap-4 p-4 sm:grid-cols-[104px_minmax(0,1fr)]">
+          <div class="grid aspect-[2/3] w-28 place-items-center rounded-lg bg-gradient-to-br from-fuchsia-500 to-cyan-400 text-sm font-black text-white sm:w-[104px]">검색 중</div>
+          <div><h4 class="text-lg font-black">정보를 찾고 있어요</h4><p class="mt-2 leading-7 text-slate-600">웹에서 영화 정보를 가져오는 중입니다.</p></div>
+        </div>
+      `);
+
+      try {
+        const params = new URLSearchParams({
+          action: "query",
+          list: "search",
+          srsearch: `${query} 영화`,
+          srlimit: "5",
+          format: "json",
+          origin: "*"
+        });
+        const searchResponse = await fetch(`https://ko.wikipedia.org/w/api.php?${params.toString()}`);
+        if (!searchResponse.ok) throw new Error("검색 응답을 받을 수 없어요.");
+        const searchData = await searchResponse.json();
+        const first = (searchData.query && searchData.query.search || [])[0];
+
+        if (!first) {
+          state.movieReference = null;
+          setMovieInfo(`
+            <div class="grid gap-4 p-4 sm:grid-cols-[104px_minmax(0,1fr)]">
+              <div class="grid aspect-[2/3] w-28 place-items-center rounded-lg bg-slate-700 text-sm font-black text-white sm:w-[104px]">없음</div>
+              <div><h4 class="text-lg font-black">검색 결과가 없어요</h4><p class="mt-2 leading-7 text-slate-600">제목을 정확히 입력하거나, 영화의 원제나 한국어 제목으로 다시 검색해 보세요.</p></div>
+            </div>
+          `);
+          render();
+          return;
+        }
+
+        const summaryResponse = await fetch(`https://ko.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(first.title)}`);
+        if (!summaryResponse.ok) throw new Error("요약 정보를 받을 수 없어요.");
+        const summary = await summaryResponse.json();
+        const extract = summary.extract || first.snippet.replace(/<[^>]*>/g, "");
+        const description = summary.description || "영화 정보";
+        const pageUrl = summary.content_urls && summary.content_urls.desktop
+          ? summary.content_urls.desktop.page
+          : `https://ko.wikipedia.org/wiki/${encodeURIComponent(first.title)}`;
+
+        state.movieReference = {
+          title: summary.title || first.title,
+          description,
+          extract,
+          url: pageUrl
+        };
+
+        if (!getValue("title")) {
+          $("title").value = state.movieReference.title;
+          $("searchTitle").value = state.movieReference.title;
+        }
+
+        setMovieInfo(`
+          ${movieCardHtml(state.movieReference, summary.thumbnail && summary.thumbnail.source, "출처: 위키백과")}
+          <div class="flex flex-wrap items-center gap-3 border-t border-fuchsia-100 bg-white/70 px-4 py-3 text-sm text-slate-500">
+            <span>이 내용은 참고자료예요. 감상문에는 내가 느낀 점을 중심으로 써 보세요.</span>
+            <a class="font-black text-fuchsia-700 underline-offset-4 hover:underline" href="${escapeHtml(pageUrl)}" target="_blank" rel="noopener">원문 보기</a>
+            <button class="rounded-lg border border-slate-200 bg-white px-3 py-2 font-black text-slate-700 transition hover:bg-slate-50" type="button" id="useSummaryBtn">줄거리 참고문 넣기</button>
+          </div>
+        `);
+
+        $("useSummaryBtn").addEventListener("click", () => {
+          if (!getValue("scene")) {
+            $("scene").value = `줄거리를 읽고 보니, ${state.movieReference.title}에서 인물들이 겪는 일이 특히 기억에 남았다.`;
+          }
+          if (!getValue("lesson")) {
+            $("lesson").value = "영화의 줄거리와 인물의 선택을 보며 내가 중요하게 생각하는 가치가 무엇인지 생각해 보게 되었다";
+          }
+          render();
+          showToast("참고 문장을 생각 정리에 넣었어요.");
+        });
+
+        render();
+        showToast("영화 정보를 찾았어요.");
+      } catch (error) {
+        state.movieReference = null;
+        setMovieInfo(`
+          <div class="grid gap-4 p-4 sm:grid-cols-[104px_minmax(0,1fr)]">
+            <div class="grid aspect-[2/3] w-28 place-items-center rounded-lg bg-rose-600 text-sm font-black text-white sm:w-[104px]">오류</div>
+            <div><h4 class="text-lg font-black">검색이 잘 되지 않았어요</h4><p class="mt-2 leading-7 text-slate-600">인터넷 연결이나 브라우저 보안 설정 때문에 정보를 가져오지 못했어요. 잠시 뒤 다시 시도해 보세요.</p></div>
+          </div>
+        `);
+        render();
+      } finally {
+        $("searchBtn").disabled = false;
+        $("searchBtn").textContent = "검색";
+      }
+    }
+
+    function saveDraft() {
+      localStorage.setItem("movieEssayDraft", JSON.stringify(collectData()));
+    }
+
+    function collectData() {
+      const data = { rating: state.rating, feelings: state.feelings, movieReference: state.movieReference };
+      fields.forEach((id) => data[id] = $(id).value);
+      data.searchTitle = $("searchTitle").value;
+      return data;
+    }
+
+    function applyData(data) {
+      fields.forEach((id) => $(id).value = data[id] || "");
+      $("searchTitle").value = data.searchTitle || data.title || "";
+      state.rating = data.rating || 0;
+      state.feelings = data.feelings || [];
+      state.movieReference = data.movieReference || null;
+      document.querySelectorAll(".chip").forEach((chip) => {
+        setClasses(chip, chipActiveClass, state.feelings.includes(chip.textContent));
+      });
+      document.querySelectorAll(".star").forEach((star, index) => {
+        setClasses(star, starActiveClass, index < state.rating);
+      });
+      if (state.movieReference) {
+        setMovieInfo(`
+          ${movieCardHtml(state.movieReference, "", "저장된 참고자료")}
+          <div class="flex flex-wrap items-center gap-3 border-t border-fuchsia-100 bg-white/70 px-4 py-3 text-sm text-slate-500">
+            <span>저장된 참고자료입니다.</span>
+            <a class="font-black text-fuchsia-700 underline-offset-4 hover:underline" href="${escapeHtml(state.movieReference.url)}" target="_blank" rel="noopener">원문 보기</a>
+          </div>
+        `);
+      } else {
+        $("movieInfo").classList.add("hidden");
+        $("movieInfo").innerHTML = "";
+      }
+      render();
+    }
+
+    function savedEssays() {
+      return JSON.parse(localStorage.getItem("movieEssays") || "[]");
+    }
+
+    function renderSavedList() {
+      const list = $("savedList");
+      const essays = savedEssays();
+      list.innerHTML = "";
+
+      if (!essays.length) {
+        const empty = document.createElement("p");
+        empty.className = "text-sm leading-6 text-sky-100";
+        empty.textContent = "아직 저장한 글이 없어요.";
+        list.appendChild(empty);
+        return;
+      }
+
+      essays.slice().reverse().forEach((essay) => {
+        const item = document.createElement("button");
+        item.type = "button";
+        item.className = "w-full rounded-lg bg-white/10 p-3 text-left text-sm font-black text-white transition hover:bg-white/15";
+        item.innerHTML = `${escapeHtml(essay.title || "제목 없음")}<small class="mt-1 block font-normal text-sky-100">${escapeHtml(essay.savedAt)}</small>`;
+        item.addEventListener("click", () => {
+          applyData(essay.data);
+          showToast("저장한 감상문을 불러왔어요.");
+        });
+        list.appendChild(item);
+      });
+    }
+
+    fields.forEach((id) => $(id).addEventListener("input", () => {
+      if (id === "title" && !getValue("searchTitle")) $("searchTitle").value = $("title").value;
+      render();
+    }));
+
+    $("searchTitle").addEventListener("keydown", (event) => {
+      if (event.key === "Enter") searchMovie();
+    });
+    $("searchBtn").addEventListener("click", searchMovie);
+
+    document.querySelectorAll(".chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const active = !state.feelings.includes(chip.textContent);
+        setClasses(chip, chipActiveClass, active);
+        state.feelings = Array.from(document.querySelectorAll(".chip"))
+          .filter((item) => item.classList.contains("bg-amber-100"))
+          .map((item) => item.textContent);
+        render();
+      });
+    });
+
+    document.querySelectorAll(".star").forEach((star, index) => {
+      star.addEventListener("click", () => {
+        state.rating = index + 1;
+        document.querySelectorAll(".star").forEach((item, starIndex) => {
+          setClasses(item, starActiveClass, starIndex <= index);
+        });
+        render();
+      });
+    });
+
+    $("saveBtn").addEventListener("click", () => {
+      const essays = savedEssays();
+      const data = collectData();
+      essays.push({
+        title: data.title || "제목 없음",
+        savedAt: new Date().toLocaleString("ko-KR"),
+        data
+      });
+      localStorage.setItem("movieEssays", JSON.stringify(essays));
+      renderSavedList();
+      showToast("감상문을 저장했어요.");
+    });
+
+    $("printBtn").addEventListener("click", () => window.print());
+
+    $("copyBtn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText($("paper").textContent);
+        showToast("본문을 복사했어요.");
+      } catch {
+        showToast("복사를 지원하지 않는 브라우저예요.");
+      }
+    });
+
+    $("clearBtn").addEventListener("click", () => {
+      if (!confirm("지금 쓰는 내용을 비우고 새로 쓸까요?")) return;
+      localStorage.removeItem("movieEssayDraft");
+      applyData({ date: new Date().toISOString().slice(0, 10) });
+      showToast("새 감상문을 쓸 준비가 되었어요.");
+    });
+
+    const draft = JSON.parse(localStorage.getItem("movieEssayDraft") || "null");
+    if (draft) {
+      applyData(draft);
+    } else {
+      $("date").value = new Date().toISOString().slice(0, 10);
+      render();
+    }
+    renderSavedList();
+  </script>
+</body>
+</html>
