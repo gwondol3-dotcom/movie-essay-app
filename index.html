@@ -21,164 +21,175 @@
   </script>
 </head>
 <body class="min-h-screen bg-sky-50 font-sans text-slate-800">
-  <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(251,146,60,0.28),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(45,212,191,0.3),transparent_26%),radial-gradient(circle_at_75%_85%,rgba(168,85,247,0.22),transparent_30%),linear-gradient(90deg,rgba(14,165,233,0.11)_1px,transparent_1px),linear-gradient(rgba(14,165,233,0.11)_1px,transparent_1px)] bg-[length:auto,auto,auto,30px_30px,30px_30px]"></div>
+  <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(251,146,60,0.24),transparent_26%),radial-gradient(circle_at_84%_0%,rgba(45,212,191,0.28),transparent_26%),radial-gradient(circle_at_78%_85%,rgba(168,85,247,0.2),transparent_28%),linear-gradient(90deg,rgba(14,165,233,0.1)_1px,transparent_1px),linear-gradient(rgba(14,165,233,0.1)_1px,transparent_1px)] bg-[length:auto,auto,auto,28px_28px,28px_28px]"></div>
 
   <div class="grid min-h-screen lg:grid-cols-[280px_minmax(0,1fr)]">
-    <aside class="sticky top-0 h-auto overflow-auto bg-slate-950 px-5 py-6 text-white lg:h-screen">
-      <div class="mb-7 flex items-center gap-3">
-        <div class="grid h-12 w-12 shrink-0 place-items-center rounded-full border-4 border-white/80 bg-gradient-to-br from-amber-300 via-orange-400 to-rose-400 shadow-lg">
-          <div class="grid h-8 w-8 grid-cols-2 gap-1 rounded-full bg-slate-950 p-1">
+    <aside class="bg-slate-950 px-4 py-4 text-white lg:sticky lg:top-0 lg:h-screen lg:overflow-auto lg:px-5 lg:py-6">
+      <div class="mb-4 flex items-center gap-3 lg:mb-7">
+        <div class="grid h-10 w-10 shrink-0 place-items-center rounded-full border-4 border-white/80 bg-gradient-to-br from-amber-300 via-orange-400 to-rose-400 shadow-lg lg:h-12 lg:w-12">
+          <div class="grid h-6 w-6 grid-cols-2 gap-1 rounded-full bg-slate-950 p-1 lg:h-8 lg:w-8">
             <span class="rounded-full bg-white"></span>
             <span class="rounded-full bg-white"></span>
             <span class="rounded-full bg-white"></span>
             <span class="rounded-full bg-white"></span>
           </div>
         </div>
-        <div>
-          <h1 class="text-2xl font-black leading-tight tracking-normal">영화 감상문<br>쓰기</h1>
-          <p class="mt-1 text-sm leading-6 text-sky-100">초등학교 5학년을 위한 감상 정리 도구</p>
+        <div class="min-w-0">
+          <h1 class="text-xl font-black leading-tight tracking-normal lg:text-2xl">영화 감상문 쓰기</h1>
+          <p class="mt-1 text-xs leading-5 text-sky-100 lg:text-sm">초등학교 5학년을 위한 감상 정리 도구</p>
         </div>
       </div>
 
-      <nav class="mb-6 grid gap-2" aria-label="작성 단계">
-        <a class="rounded-lg bg-white/10 px-3 py-3 text-sm font-bold text-white transition hover:bg-cyan-400/25 focus:outline-none focus:ring-2 focus:ring-cyan-300" href="#movie">1. 영화 정보</a>
-        <a class="rounded-lg bg-white/10 px-3 py-3 text-sm font-bold text-white transition hover:bg-fuchsia-400/25 focus:outline-none focus:ring-2 focus:ring-fuchsia-300" href="#search">2. 줄거리 찾기</a>
-        <a class="rounded-lg bg-white/10 px-3 py-3 text-sm font-bold text-white transition hover:bg-amber-400/25 focus:outline-none focus:ring-2 focus:ring-amber-300" href="#feeling">3. 느낌 고르기</a>
-        <a class="rounded-lg bg-white/10 px-3 py-3 text-sm font-bold text-white transition hover:bg-emerald-400/25 focus:outline-none focus:ring-2 focus:ring-emerald-300" href="#thinking">4. 생각 정리</a>
-        <a class="rounded-lg bg-white/10 px-3 py-3 text-sm font-bold text-white transition hover:bg-rose-400/25 focus:outline-none focus:ring-2 focus:ring-rose-300" href="#finish">5. 마무리</a>
+      <nav class="-mx-1 mb-3 flex gap-2 overflow-x-auto px-1 pb-1 lg:mx-0 lg:mb-6 lg:grid lg:overflow-visible lg:px-0 lg:pb-0" aria-label="작성 단계">
+        <a class="shrink-0 whitespace-nowrap rounded-lg bg-white/10 px-3 py-2.5 text-sm font-bold text-white transition hover:bg-cyan-400/25 focus:outline-none focus:ring-2 focus:ring-cyan-300 lg:py-3" href="#movie">1. 영화 정보</a>
+        <a class="shrink-0 whitespace-nowrap rounded-lg bg-white/10 px-3 py-2.5 text-sm font-bold text-white transition hover:bg-fuchsia-400/25 focus:outline-none focus:ring-2 focus:ring-fuchsia-300 lg:py-3" href="#search">2. 줄거리 찾기</a>
+        <a class="shrink-0 whitespace-nowrap rounded-lg bg-white/10 px-3 py-2.5 text-sm font-bold text-white transition hover:bg-amber-400/25 focus:outline-none focus:ring-2 focus:ring-amber-300 lg:py-3" href="#feeling">3. 느낌</a>
+        <a class="shrink-0 whitespace-nowrap rounded-lg bg-white/10 px-3 py-2.5 text-sm font-bold text-white transition hover:bg-emerald-400/25 focus:outline-none focus:ring-2 focus:ring-emerald-300 lg:py-3" href="#thinking">4. 생각</a>
+        <a class="shrink-0 whitespace-nowrap rounded-lg bg-white/10 px-3 py-2.5 text-sm font-bold text-white transition hover:bg-rose-400/25 focus:outline-none focus:ring-2 focus:ring-rose-300 lg:py-3" href="#finish">5. 마무리</a>
       </nav>
 
-      <div class="border-t border-white/15 pt-5">
+      <details class="rounded-lg bg-white/10 p-3 lg:hidden">
+        <summary class="cursor-pointer text-sm font-black">저장한 감상문 보기</summary>
+        <div class="saved-list mt-3 grid gap-2"></div>
+      </details>
+
+      <div class="hidden border-t border-white/15 pt-5 lg:block">
         <h2 class="mb-3 text-base font-black">저장한 감상문</h2>
-        <div class="grid gap-2" id="savedList"></div>
+        <div class="saved-list grid gap-2"></div>
       </div>
     </aside>
 
-    <main class="p-4 sm:p-7">
-      <div class="relative mb-5 min-h-60 overflow-hidden rounded-lg bg-slate-950 px-7 py-8 text-white shadow-soft sm:px-9">
+    <main class="p-3 pb-24 sm:p-6 lg:p-7 lg:pb-7">
+      <div class="relative mb-3 overflow-hidden rounded-lg bg-slate-950 px-4 py-5 text-white shadow-soft sm:mb-5 sm:min-h-60 sm:px-9 sm:py-8">
         <div class="absolute inset-0 bg-[linear-gradient(110deg,rgba(15,23,42,0.96),rgba(15,23,42,0.42)),repeating-linear-gradient(90deg,#111827_0_28px,#f8fafc_28px_38px,#111827_38px_66px)]"></div>
-        <div class="absolute -right-12 -bottom-16 h-72 w-72 rounded-full bg-[conic-gradient(from_18deg,#facc15_0_14deg,transparent_14deg_45deg,#22d3ee_45deg_60deg,transparent_60deg_91deg,#fb7185_91deg_106deg,transparent_106deg_137deg,#34d399_137deg_152deg,transparent_152deg_360deg)] opacity-90"></div>
+        <div class="absolute -right-16 -bottom-20 h-56 w-56 rounded-full bg-[conic-gradient(from_18deg,#facc15_0_14deg,transparent_14deg_45deg,#22d3ee_45deg_60deg,transparent_60deg_91deg,#fb7185_91deg_106deg,transparent_106deg_137deg,#34d399_137deg_152deg,transparent_152deg_360deg)] opacity-90 sm:h-72 sm:w-72"></div>
         <div class="relative max-w-3xl">
-          <h2 class="text-3xl font-black leading-tight tracking-normal sm:text-5xl">영화를 본 뒤, 내 생각이 보이는 글로 정리해요.</h2>
-          <p class="mt-4 max-w-2xl text-base leading-7 text-sky-50">영화 정보를 찾아 줄거리를 가볍게 확인하고, 인상 깊은 장면과 내 생각을 차례로 적으면 감상문 초안이 자동으로 만들어집니다.</p>
+          <h2 class="text-2xl font-black leading-tight tracking-normal sm:text-5xl">영화를 본 뒤, 내 생각이 보이는 글로 정리해요.</h2>
+          <p class="mt-3 text-sm leading-6 text-sky-50 sm:mt-4 sm:max-w-2xl sm:text-base sm:leading-7">영화 정보를 찾아 줄거리를 가볍게 확인하고, 내 생각을 차례로 적으면 감상문 초안이 만들어집니다.</p>
         </div>
       </div>
 
-      <div class="grid items-start gap-5 xl:grid-cols-[minmax(0,1fr)_360px]">
+      <div class="grid items-start gap-4 xl:grid-cols-[minmax(0,1fr)_360px]">
         <div class="space-y-4">
-          <section id="movie" class="rounded-lg border border-cyan-100 bg-white/90 p-5 shadow-lg shadow-cyan-900/5">
+          <section id="movie" class="scroll-mt-4 rounded-lg border border-cyan-100 bg-white/95 p-4 shadow-lg shadow-cyan-900/5 sm:p-5">
             <div class="mb-4 flex items-center gap-3">
-              <span class="grid h-9 w-9 place-items-center rounded-lg bg-cyan-100 text-xl">🎞</span>
-              <h3 class="text-xl font-black tracking-normal">영화 정보</h3>
+              <span class="grid h-9 w-9 place-items-center rounded-lg bg-cyan-100 text-lg">🎞</span>
+              <h3 class="text-lg font-black tracking-normal sm:text-xl">영화 정보</h3>
             </div>
-            <div class="grid gap-4 sm:grid-cols-2">
+            <div class="grid gap-3 sm:grid-cols-2 sm:gap-4">
               <label class="grid gap-2 text-sm font-black text-slate-600">영화 제목
-                <input class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="title" placeholder="예: 코코">
+                <input class="min-h-12 rounded-lg border border-slate-200 bg-white px-3 py-2 text-base text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="title" placeholder="예: 코코">
               </label>
               <label class="grid gap-2 text-sm font-black text-slate-600">감상한 날짜
-                <input class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="date" type="date">
+                <input class="min-h-12 rounded-lg border border-slate-200 bg-white px-3 py-2 text-base text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="date" type="date">
               </label>
               <label class="grid gap-2 text-sm font-black text-slate-600">내 이름
-                <input class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="student" placeholder="예: 김하늘">
+                <input class="min-h-12 rounded-lg border border-slate-200 bg-white px-3 py-2 text-base text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="student" placeholder="예: 김하늘">
               </label>
               <label class="grid gap-2 text-sm font-black text-slate-600">함께 본 사람
-                <input class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="with" placeholder="예: 우리 반 친구들">
+                <input class="min-h-12 rounded-lg border border-slate-200 bg-white px-3 py-2 text-base text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-500 focus:ring-4" id="with" placeholder="예: 우리 반 친구들">
               </label>
             </div>
           </section>
 
-          <section id="search" class="rounded-lg border border-fuchsia-100 bg-white/90 p-5 shadow-lg shadow-fuchsia-900/5">
+          <section id="search" class="scroll-mt-4 rounded-lg border border-fuchsia-100 bg-white/95 p-4 shadow-lg shadow-fuchsia-900/5 sm:p-5">
             <div class="mb-4 flex items-center gap-3">
-              <span class="grid h-9 w-9 place-items-center rounded-lg bg-fuchsia-100 text-xl">🔎</span>
-              <h3 class="text-xl font-black tracking-normal">줄거리와 기본 정보 찾기</h3>
+              <span class="grid h-9 w-9 place-items-center rounded-lg bg-fuchsia-100 text-lg">🔎</span>
+              <h3 class="text-lg font-black tracking-normal sm:text-xl">줄거리와 기본 정보 찾기</h3>
             </div>
-            <p class="mb-4 text-sm leading-6 text-slate-500">영화 제목을 검색하면 웹에서 공개된 정보를 찾아 보여줘요. 참고한 뒤에는 내 생각을 꼭 덧붙여 보세요.</p>
+            <p class="mb-4 text-sm leading-6 text-slate-500">영화 제목을 검색하면 공개된 정보를 찾아 보여줘요. 참고한 뒤에는 내 생각을 꼭 덧붙여 보세요.</p>
             <div class="grid items-end gap-3 sm:grid-cols-[minmax(0,1fr)_auto]">
               <label class="grid gap-2 text-sm font-black text-slate-600">검색어
-                <input class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 outline-none ring-fuchsia-200 transition focus:border-fuchsia-500 focus:ring-4" id="searchTitle" placeholder="영화 제목을 입력하세요">
+                <input class="min-h-12 rounded-lg border border-slate-200 bg-white px-3 py-2 text-base text-slate-900 outline-none ring-fuchsia-200 transition focus:border-fuchsia-500 focus:ring-4" id="searchTitle" placeholder="영화 제목을 입력하세요">
               </label>
-              <button class="min-h-11 rounded-lg bg-gradient-to-r from-fuchsia-600 to-violet-600 px-5 font-black text-white shadow-md shadow-fuchsia-900/20 transition hover:scale-[1.01] disabled:cursor-wait disabled:from-fuchsia-300 disabled:to-violet-300" type="button" id="searchBtn">검색</button>
+              <button class="min-h-12 rounded-lg bg-gradient-to-r from-fuchsia-600 to-violet-600 px-5 font-black text-white shadow-md shadow-fuchsia-900/20 transition active:scale-[0.99] disabled:cursor-wait disabled:from-fuchsia-300 disabled:to-violet-300 sm:min-w-24" type="button" id="searchBtn">검색</button>
             </div>
             <div class="mt-4 hidden overflow-hidden rounded-lg border border-fuchsia-100 bg-fuchsia-50/80" id="movieInfo" aria-live="polite"></div>
           </section>
 
-          <section id="feeling" class="rounded-lg border border-amber-100 bg-white/90 p-5 shadow-lg shadow-amber-900/5">
+          <section id="feeling" class="scroll-mt-4 rounded-lg border border-amber-100 bg-white/95 p-4 shadow-lg shadow-amber-900/5 sm:p-5">
             <div class="mb-4 flex items-center gap-3">
-              <span class="grid h-9 w-9 place-items-center rounded-lg bg-amber-100 text-xl">✨</span>
-              <h3 class="text-xl font-black tracking-normal">느낌 고르기</h3>
+              <span class="grid h-9 w-9 place-items-center rounded-lg bg-amber-100 text-lg">✨</span>
+              <h3 class="text-lg font-black tracking-normal sm:text-xl">느낌 고르기</h3>
             </div>
             <p class="mb-4 text-sm leading-6 text-slate-500">영화를 보고 가장 크게 든 마음을 2개 이상 골라도 좋아요.</p>
             <div class="flex flex-wrap gap-2" id="chips">
-              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">감동적이었다</button>
-              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">재미있었다</button>
-              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">슬펐다</button>
-              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">긴장되었다</button>
-              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">궁금했다</button>
-              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">놀라웠다</button>
-              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">생각이 많아졌다</button>
-              <button class="chip min-h-10 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50" type="button">따뜻했다</button>
+              <button class="chip min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition active:scale-[0.99]" type="button">감동적이었다</button>
+              <button class="chip min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition active:scale-[0.99]" type="button">재미있었다</button>
+              <button class="chip min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition active:scale-[0.99]" type="button">슬펐다</button>
+              <button class="chip min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition active:scale-[0.99]" type="button">긴장되었다</button>
+              <button class="chip min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition active:scale-[0.99]" type="button">궁금했다</button>
+              <button class="chip min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition active:scale-[0.99]" type="button">놀라웠다</button>
+              <button class="chip min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition active:scale-[0.99]" type="button">생각이 많아졌다</button>
+              <button class="chip min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 transition active:scale-[0.99]" type="button">따뜻했다</button>
             </div>
             <p class="mb-3 mt-5 text-sm leading-6 text-slate-500">별점도 골라보세요.</p>
-            <div class="flex flex-wrap gap-2" id="rating" aria-label="별점 선택">
-              <button class="star grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition hover:border-amber-300 hover:bg-amber-50" type="button" aria-label="1점">★</button>
-              <button class="star grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition hover:border-amber-300 hover:bg-amber-50" type="button" aria-label="2점">★</button>
-              <button class="star grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition hover:border-amber-300 hover:bg-amber-50" type="button" aria-label="3점">★</button>
-              <button class="star grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition hover:border-amber-300 hover:bg-amber-50" type="button" aria-label="4점">★</button>
-              <button class="star grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition hover:border-amber-300 hover:bg-amber-50" type="button" aria-label="5점">★</button>
+            <div class="grid grid-cols-5 gap-2" id="rating" aria-label="별점 선택">
+              <button class="star grid h-12 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition active:scale-[0.99]" type="button" aria-label="1점">★</button>
+              <button class="star grid h-12 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition active:scale-[0.99]" type="button" aria-label="2점">★</button>
+              <button class="star grid h-12 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition active:scale-[0.99]" type="button" aria-label="3점">★</button>
+              <button class="star grid h-12 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition active:scale-[0.99]" type="button" aria-label="4점">★</button>
+              <button class="star grid h-12 place-items-center rounded-lg border border-slate-200 bg-white text-2xl text-slate-400 transition active:scale-[0.99]" type="button" aria-label="5점">★</button>
             </div>
           </section>
 
-          <section id="thinking" class="rounded-lg border border-emerald-100 bg-white/90 p-5 shadow-lg shadow-emerald-900/5">
+          <section id="thinking" class="scroll-mt-4 rounded-lg border border-emerald-100 bg-white/95 p-4 shadow-lg shadow-emerald-900/5 sm:p-5">
             <div class="mb-4 flex items-center gap-3">
-              <span class="grid h-9 w-9 place-items-center rounded-lg bg-emerald-100 text-xl">💭</span>
-              <h3 class="text-xl font-black tracking-normal">생각 정리</h3>
+              <span class="grid h-9 w-9 place-items-center rounded-lg bg-emerald-100 text-lg">💭</span>
+              <h3 class="text-lg font-black tracking-normal sm:text-xl">생각 정리</h3>
             </div>
             <div class="grid gap-4">
               <label class="grid gap-2 text-sm font-black text-slate-600">가장 기억에 남는 장면은 무엇인가요?
-                <textarea class="min-h-28 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="scene" placeholder="어떤 장면이었는지, 왜 기억에 남았는지 적어보세요."></textarea>
+                <textarea class="min-h-32 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 text-base leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="scene" placeholder="어떤 장면이었는지, 왜 기억에 남았는지 적어보세요."></textarea>
               </label>
               <label class="grid gap-2 text-sm font-black text-slate-600">가장 마음에 남은 등장인물은 누구인가요?
-                <textarea class="min-h-28 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="character" placeholder="그 인물이 한 말이나 행동도 함께 적어보세요."></textarea>
+                <textarea class="min-h-32 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 text-base leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="character" placeholder="그 인물이 한 말이나 행동도 함께 적어보세요."></textarea>
               </label>
               <label class="grid gap-2 text-sm font-black text-slate-600">영화가 알려 준 생각이나 교훈은 무엇인가요?
-                <textarea class="min-h-28 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="lesson" placeholder="내 생활과 연결해서 생각해도 좋아요."></textarea>
+                <textarea class="min-h-32 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 text-base leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="lesson" placeholder="내 생활과 연결해서 생각해도 좋아요."></textarea>
               </label>
               <label class="grid gap-2 text-sm font-black text-slate-600">친구에게 이 영화를 추천한다면 뭐라고 말하고 싶나요?
-                <textarea class="min-h-28 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="recommend" placeholder="추천하는 이유 또는 추천하지 않는 이유를 써보세요."></textarea>
+                <textarea class="min-h-32 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 text-base leading-7 text-slate-900 outline-none ring-emerald-200 transition focus:border-emerald-500 focus:ring-4" id="recommend" placeholder="추천하는 이유 또는 추천하지 않는 이유를 써보세요."></textarea>
               </label>
             </div>
           </section>
 
-          <section id="finish" class="rounded-lg border border-rose-100 bg-white/90 p-5 shadow-lg shadow-rose-900/5">
+          <section id="finish" class="scroll-mt-4 rounded-lg border border-rose-100 bg-white/95 p-4 shadow-lg shadow-rose-900/5 sm:p-5">
             <div class="mb-4 flex items-center gap-3">
-              <span class="grid h-9 w-9 place-items-center rounded-lg bg-rose-100 text-xl">📝</span>
-              <h3 class="text-xl font-black tracking-normal">마무리 문장</h3>
+              <span class="grid h-9 w-9 place-items-center rounded-lg bg-rose-100 text-lg">📝</span>
+              <h3 class="text-lg font-black tracking-normal sm:text-xl">마무리 문장</h3>
             </div>
             <label class="grid gap-2 text-sm font-black text-slate-600">마지막으로 꼭 하고 싶은 말
-              <textarea class="min-h-28 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 leading-7 text-slate-900 outline-none ring-rose-200 transition focus:border-rose-500 focus:ring-4" id="closing" placeholder="영화를 보고 달라진 생각이나 앞으로 해보고 싶은 일을 적어보세요."></textarea>
+              <textarea class="min-h-32 resize-y rounded-lg border border-slate-200 bg-white px-3 py-3 text-base leading-7 text-slate-900 outline-none ring-rose-200 transition focus:border-rose-500 focus:ring-4" id="closing" placeholder="영화를 보고 달라진 생각이나 앞으로 해보고 싶은 일을 적어보세요."></textarea>
             </label>
-            <div class="mt-4 flex flex-wrap gap-3">
-              <button class="min-h-11 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-5 font-black text-white shadow-md shadow-blue-900/20 transition hover:scale-[1.01]" type="button" id="saveBtn">저장</button>
-              <button class="min-h-11 rounded-lg border border-slate-200 bg-white px-5 font-black text-slate-800 transition hover:bg-slate-50" type="button" id="printBtn">인쇄</button>
-              <button class="min-h-11 rounded-lg border border-slate-200 bg-white px-5 font-black text-slate-800 transition hover:bg-slate-50" type="button" id="copyBtn">본문 복사</button>
-              <button class="min-h-11 rounded-lg border border-rose-200 bg-rose-50 px-5 font-black text-rose-700 transition hover:bg-rose-100" type="button" id="clearBtn">새로 쓰기</button>
+            <div class="mt-4 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
+              <button class="min-h-12 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-4 font-black text-white shadow-md shadow-blue-900/20 transition active:scale-[0.99]" type="button" id="saveBtn">저장</button>
+              <button class="min-h-12 rounded-lg border border-slate-200 bg-white px-4 font-black text-slate-800 transition active:scale-[0.99]" type="button" id="printBtn">인쇄</button>
+              <button class="min-h-12 rounded-lg border border-slate-200 bg-white px-4 font-black text-slate-800 transition active:scale-[0.99]" type="button" id="copyBtn">본문 복사</button>
+              <button class="min-h-12 rounded-lg border border-rose-200 bg-rose-50 px-4 font-black text-rose-700 transition active:scale-[0.99]" type="button" id="clearBtn">새로 쓰기</button>
             </div>
           </section>
         </div>
 
-        <div class="sticky top-5 rounded-lg border border-violet-100 bg-white/90 p-5 shadow-lg shadow-violet-900/5" aria-live="polite">
+        <section id="preview" class="scroll-mt-4 rounded-lg border border-violet-100 bg-white/95 p-4 shadow-lg shadow-violet-900/5 sm:p-5 xl:sticky xl:top-5" aria-live="polite">
           <div class="mb-4 flex items-center gap-3">
-            <span class="grid h-9 w-9 place-items-center rounded-lg bg-violet-100 text-xl">📄</span>
-            <h3 class="text-xl font-black tracking-normal">감상문 미리보기</h3>
+            <span class="grid h-9 w-9 place-items-center rounded-lg bg-violet-100 text-lg">📄</span>
+            <h3 class="text-lg font-black tracking-normal sm:text-xl">감상문 미리보기</h3>
           </div>
-          <div class="min-h-[420px] whitespace-pre-wrap rounded-lg border border-amber-100 bg-[linear-gradient(#fffdf8_43px,#dbeafe_44px,#fffdf8_45px)] bg-[length:100%_46px] p-5 leading-[2]" id="paper"></div>
+          <div class="min-h-72 whitespace-pre-wrap rounded-lg border border-amber-100 bg-[linear-gradient(#fffdf8_43px,#dbeafe_44px,#fffdf8_45px)] bg-[length:100%_46px] p-4 text-sm leading-[2] sm:min-h-[420px] sm:p-5 sm:text-base" id="paper"></div>
           <div class="mt-3 text-sm text-slate-500" id="count"></div>
-        </div>
+        </section>
       </div>
     </main>
   </div>
 
-  <div class="fixed bottom-5 left-1/2 z-50 translate-x-[-50%] translate-y-20 rounded-lg bg-slate-950 px-4 py-3 text-white opacity-0 shadow-soft transition" id="toast" role="status"></div>
+  <div class="fixed inset-x-3 bottom-3 z-40 grid grid-cols-3 gap-2 rounded-xl border border-white/70 bg-white/95 p-2 shadow-soft backdrop-blur lg:hidden">
+    <a class="rounded-lg bg-fuchsia-100 px-2 py-2 text-center text-sm font-black text-fuchsia-800" href="#search">검색</a>
+    <a class="rounded-lg bg-emerald-100 px-2 py-2 text-center text-sm font-black text-emerald-800" href="#thinking">쓰기</a>
+    <a class="rounded-lg bg-violet-100 px-2 py-2 text-center text-sm font-black text-violet-800" href="#preview">미리보기</a>
+  </div>
+
+  <div class="fixed bottom-20 left-1/2 z-50 max-w-[calc(100%-24px)] translate-x-[-50%] translate-y-20 rounded-lg bg-slate-950 px-4 py-3 text-center text-sm text-white opacity-0 shadow-soft transition lg:bottom-5" id="toast" role="status"></div>
 
   <script>
     const fields = ["title", "date", "student", "with", "scene", "character", "lesson", "recommend", "closing"];
@@ -269,15 +280,15 @@
         ? `<img class="h-full w-full object-cover" src="${escapeHtml(thumbnail)}" alt="">`
         : escapeHtml(reference.title.slice(0, 12));
       return `
-        <div class="grid gap-4 p-4 sm:grid-cols-[104px_minmax(0,1fr)]">
-          <div class="grid aspect-[2/3] w-28 place-items-center overflow-hidden rounded-lg bg-gradient-to-br from-slate-900 via-violet-800 to-fuchsia-600 p-2 text-center text-sm font-black text-white sm:w-[104px]">${poster}</div>
-          <div>
-            <h4 class="text-lg font-black">${escapeHtml(reference.title)}</h4>
+        <div class="grid grid-cols-[82px_minmax(0,1fr)] gap-3 p-3 sm:grid-cols-[104px_minmax(0,1fr)] sm:gap-4 sm:p-4">
+          <div class="grid aspect-[2/3] w-[82px] place-items-center overflow-hidden rounded-lg bg-gradient-to-br from-slate-900 via-violet-800 to-fuchsia-600 p-2 text-center text-xs font-black text-white sm:w-[104px] sm:text-sm">${poster}</div>
+          <div class="min-w-0">
+            <h4 class="text-base font-black sm:text-lg">${escapeHtml(reference.title)}</h4>
             <div class="my-2 flex flex-wrap gap-2">
               <span class="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs font-bold text-slate-500">${escapeHtml(reference.description)}</span>
               <span class="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs font-bold text-slate-500">${escapeHtml(tag)}</span>
             </div>
-            <p class="leading-7 text-slate-700">${escapeHtml(reference.extract)}</p>
+            <p class="max-h-56 overflow-auto pr-1 text-sm leading-6 text-slate-700 sm:max-h-none sm:text-base sm:leading-7">${escapeHtml(reference.extract)}</p>
           </div>
         </div>
       `;
@@ -294,9 +305,9 @@
       $("searchBtn").disabled = true;
       $("searchBtn").textContent = "검색 중";
       setMovieInfo(`
-        <div class="grid gap-4 p-4 sm:grid-cols-[104px_minmax(0,1fr)]">
-          <div class="grid aspect-[2/3] w-28 place-items-center rounded-lg bg-gradient-to-br from-fuchsia-500 to-cyan-400 text-sm font-black text-white sm:w-[104px]">검색 중</div>
-          <div><h4 class="text-lg font-black">정보를 찾고 있어요</h4><p class="mt-2 leading-7 text-slate-600">웹에서 영화 정보를 가져오는 중입니다.</p></div>
+        <div class="grid grid-cols-[82px_minmax(0,1fr)] gap-3 p-3 sm:grid-cols-[104px_minmax(0,1fr)] sm:p-4">
+          <div class="grid aspect-[2/3] w-[82px] place-items-center rounded-lg bg-gradient-to-br from-fuchsia-500 to-cyan-400 text-xs font-black text-white sm:w-[104px]">검색 중</div>
+          <div><h4 class="text-base font-black sm:text-lg">정보를 찾고 있어요</h4><p class="mt-2 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">웹에서 영화 정보를 가져오는 중입니다.</p></div>
         </div>
       `);
 
@@ -317,9 +328,9 @@
         if (!first) {
           state.movieReference = null;
           setMovieInfo(`
-            <div class="grid gap-4 p-4 sm:grid-cols-[104px_minmax(0,1fr)]">
-              <div class="grid aspect-[2/3] w-28 place-items-center rounded-lg bg-slate-700 text-sm font-black text-white sm:w-[104px]">없음</div>
-              <div><h4 class="text-lg font-black">검색 결과가 없어요</h4><p class="mt-2 leading-7 text-slate-600">제목을 정확히 입력하거나, 영화의 원제나 한국어 제목으로 다시 검색해 보세요.</p></div>
+            <div class="grid grid-cols-[82px_minmax(0,1fr)] gap-3 p-3 sm:grid-cols-[104px_minmax(0,1fr)] sm:p-4">
+              <div class="grid aspect-[2/3] w-[82px] place-items-center rounded-lg bg-slate-700 text-xs font-black text-white sm:w-[104px]">없음</div>
+              <div><h4 class="text-base font-black sm:text-lg">검색 결과가 없어요</h4><p class="mt-2 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">제목을 정확히 입력하거나, 영화의 원제나 한국어 제목으로 다시 검색해 보세요.</p></div>
             </div>
           `);
           render();
@@ -349,10 +360,10 @@
 
         setMovieInfo(`
           ${movieCardHtml(state.movieReference, summary.thumbnail && summary.thumbnail.source, "출처: 위키백과")}
-          <div class="flex flex-wrap items-center gap-3 border-t border-fuchsia-100 bg-white/70 px-4 py-3 text-sm text-slate-500">
+          <div class="grid gap-2 border-t border-fuchsia-100 bg-white/70 px-3 py-3 text-sm text-slate-500 sm:flex sm:flex-wrap sm:items-center sm:gap-3 sm:px-4">
             <span>이 내용은 참고자료예요. 감상문에는 내가 느낀 점을 중심으로 써 보세요.</span>
             <a class="font-black text-fuchsia-700 underline-offset-4 hover:underline" href="${escapeHtml(pageUrl)}" target="_blank" rel="noopener">원문 보기</a>
-            <button class="rounded-lg border border-slate-200 bg-white px-3 py-2 font-black text-slate-700 transition hover:bg-slate-50" type="button" id="useSummaryBtn">줄거리 참고문 넣기</button>
+            <button class="min-h-11 rounded-lg border border-slate-200 bg-white px-3 py-2 font-black text-slate-700 transition active:scale-[0.99]" type="button" id="useSummaryBtn">줄거리 참고문 넣기</button>
           </div>
         `);
 
@@ -372,9 +383,9 @@
       } catch (error) {
         state.movieReference = null;
         setMovieInfo(`
-          <div class="grid gap-4 p-4 sm:grid-cols-[104px_minmax(0,1fr)]">
-            <div class="grid aspect-[2/3] w-28 place-items-center rounded-lg bg-rose-600 text-sm font-black text-white sm:w-[104px]">오류</div>
-            <div><h4 class="text-lg font-black">검색이 잘 되지 않았어요</h4><p class="mt-2 leading-7 text-slate-600">인터넷 연결이나 브라우저 보안 설정 때문에 정보를 가져오지 못했어요. 잠시 뒤 다시 시도해 보세요.</p></div>
+          <div class="grid grid-cols-[82px_minmax(0,1fr)] gap-3 p-3 sm:grid-cols-[104px_minmax(0,1fr)] sm:p-4">
+            <div class="grid aspect-[2/3] w-[82px] place-items-center rounded-lg bg-rose-600 text-xs font-black text-white sm:w-[104px]">오류</div>
+            <div><h4 class="text-base font-black sm:text-lg">검색이 잘 되지 않았어요</h4><p class="mt-2 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">인터넷 연결이나 브라우저 보안 설정 때문에 정보를 가져오지 못했어요. 잠시 뒤 다시 시도해 보세요.</p></div>
           </div>
         `);
         render();
@@ -410,7 +421,7 @@
       if (state.movieReference) {
         setMovieInfo(`
           ${movieCardHtml(state.movieReference, "", "저장된 참고자료")}
-          <div class="flex flex-wrap items-center gap-3 border-t border-fuchsia-100 bg-white/70 px-4 py-3 text-sm text-slate-500">
+          <div class="grid gap-2 border-t border-fuchsia-100 bg-white/70 px-3 py-3 text-sm text-slate-500 sm:flex sm:flex-wrap sm:items-center sm:gap-3 sm:px-4">
             <span>저장된 참고자료입니다.</span>
             <a class="font-black text-fuchsia-700 underline-offset-4 hover:underline" href="${escapeHtml(state.movieReference.url)}" target="_blank" rel="noopener">원문 보기</a>
           </div>
@@ -427,28 +438,29 @@
     }
 
     function renderSavedList() {
-      const list = $("savedList");
       const essays = savedEssays();
-      list.innerHTML = "";
+      document.querySelectorAll(".saved-list").forEach((list) => {
+        list.innerHTML = "";
 
-      if (!essays.length) {
-        const empty = document.createElement("p");
-        empty.className = "text-sm leading-6 text-sky-100";
-        empty.textContent = "아직 저장한 글이 없어요.";
-        list.appendChild(empty);
-        return;
-      }
+        if (!essays.length) {
+          const empty = document.createElement("p");
+          empty.className = "text-sm leading-6 text-sky-100";
+          empty.textContent = "아직 저장한 글이 없어요.";
+          list.appendChild(empty);
+          return;
+        }
 
-      essays.slice().reverse().forEach((essay) => {
-        const item = document.createElement("button");
-        item.type = "button";
-        item.className = "w-full rounded-lg bg-white/10 p-3 text-left text-sm font-black text-white transition hover:bg-white/15";
-        item.innerHTML = `${escapeHtml(essay.title || "제목 없음")}<small class="mt-1 block font-normal text-sky-100">${escapeHtml(essay.savedAt)}</small>`;
-        item.addEventListener("click", () => {
-          applyData(essay.data);
-          showToast("저장한 감상문을 불러왔어요.");
+        essays.slice().reverse().forEach((essay) => {
+          const item = document.createElement("button");
+          item.type = "button";
+          item.className = "w-full rounded-lg bg-white/10 p-3 text-left text-sm font-black text-white transition hover:bg-white/15";
+          item.innerHTML = `${escapeHtml(essay.title || "제목 없음")}<small class="mt-1 block font-normal text-sky-100">${escapeHtml(essay.savedAt)}</small>`;
+          item.addEventListener("click", () => {
+            applyData(essay.data);
+            showToast("저장한 감상문을 불러왔어요.");
+          });
+          list.appendChild(item);
         });
-        list.appendChild(item);
       });
     }
 
